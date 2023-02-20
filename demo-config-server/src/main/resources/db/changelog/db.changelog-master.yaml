@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: alexsumin
+      failOnError: true
+      validCheckSum: ANY
+      changes:
+        - sqlFile: { dbms: postgresql, path: create_table.sql, relativeToChangelogFile: true }

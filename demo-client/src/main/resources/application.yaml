@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    config:
+      name: testclient
+      profile: default
+      label: latest
+    stream:
+      kafka:
+        binder:
+          auto-add-partitions: true
+          brokers: localhost:9092
+          zkNodes: localhost:2181
+  config:
+    import: "configserver:http://localhost:8888"
+  bus:
+    enabled: true
+    refresh:
+      enabled: true
+    env:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
